@@ -1,4 +1,4 @@
-import 'package:bottom_nav_bar/bottom_navigation.dart';
+import 'package:bottom_nav_bar/core/presentation/widgets/bottom_navigation.dart';
 import 'package:bottom_nav_bar/tab_navigator.dart';
 import 'package:flutter/material.dart';
 
@@ -30,12 +30,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  TabItem _currentTab = TabItem.red;
+  TabItem _currentTab = TabItem.lamps;
 
   Map<TabItem, GlobalKey<NavigatorState>> navigatorKeys = {
-    TabItem.red: GlobalKey<NavigatorState>(),
-    TabItem.green: GlobalKey<NavigatorState>(),
-    TabItem.blue: GlobalKey<NavigatorState>(),
+    TabItem.lamps: GlobalKey<NavigatorState>(),
+    TabItem.groups: GlobalKey<NavigatorState>(),
   };
 
   void _selectTab(TabItem tabItem) {
@@ -55,9 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),*/
           body: Stack(
             children: <Widget>[
-              _buildOffstageNavigator(TabItem.red),
-              _buildOffstageNavigator(TabItem.green),
-              _buildOffstageNavigator(TabItem.blue),
+              _buildOffstageNavigator(TabItem.lamps),
+              _buildOffstageNavigator(TabItem.groups),
             ],
           ),
           bottomNavigationBar: BottomNavigation(
